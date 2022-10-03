@@ -2,9 +2,9 @@ let firstCard;
 let secondCard;
 //let cards = document.querySelectorAll(".memory-image");
 
-function flipCards(gennaro) {
-  let flippedCards = gennaro.target;
-  //gennaro.target.classList.add("visible-image");
+function flipCards(flip) {
+  let flippedCards = flip.target;
+  //flip.target.classList.add("visible-image");
   flippedCards.classList.add("visible-image");
   if (firstCard === undefined) {
     firstCard = flippedCards;
@@ -13,13 +13,17 @@ function flipCards(gennaro) {
     secondCard = flippedCards;
     console.log(secondCard);
   }
-  if (firstCard.dataset == secondCard.dataset) {
-    flippedCards.classList.add("matched");
+  if (firstCard.dataset.animals === secondCard.dataset.animals) {
+    firstCard.classList.add("matched");
+    secondCard.classList.add("matched");
+    firstCard.removeAttribute(onclick);
+    secondCard.removeAttribute(onclick);
+    firstCard = undefined;
+    secondCard = undefined;
+  } else {
+    firstCard.classList.remove("visible-image");
+    secondCard.classList.remove("visible-image");
+    firstCard = undefined;
+    secondCard = undefined;
   }
 }
-
-/*for (let i = 0; i < cards.length; i++) {
-  function flipCards() {
-    cards[i].classList.add("visible-image");
-  }
-}*/

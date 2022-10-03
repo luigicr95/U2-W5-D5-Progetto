@@ -53,7 +53,7 @@ function unflipCards() {
     firstCard.classList.remove("visible-image");
     secondCard.classList.remove("visible-image");
 
-    lockBoard = false;
+    //lockBoard = false;
     resetBoard();
   }, 1500);
 }
